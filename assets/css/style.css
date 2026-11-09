@@ -1,0 +1,401 @@
+/* Tema Monochrome Elegance: terang default, gelap lewat [data-theme="dark"] */
+:root {
+  --bg: #f5f5f5; --card: #ffffff; --field: #ffffff;
+  --text: #222222; --muted: #777777; --faint: #a3a3a3; --line: #e5e5e5;
+  --accent: #222222; --on-accent: #ffffff; --soft: #eeeeee;
+  --ok: #2f7d4f; --ok-soft: #eaf3ee;
+  --warn: #b45f06; --warn-soft: #f7eddf;
+  --bad: #b42318; --bad-soft: #fbeae8;
+}
+[data-theme="dark"] {
+  --bg: #171717; --card: #222222; --field: #292929;
+  --text: #f5f5f5; --muted: #a3a3a3; --faint: #737373; --line: #333333;
+  --accent: #f5f5f5; --on-accent: #171717; --soft: #292929;
+  --ok: #7fc79a; --ok-soft: #1d2a22;
+  --warn: #e0a458; --warn-soft: #2f2619;
+  --bad: #e88a80; --bad-soft: #33201e;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+}
+.text-muted-ios { color: var(--muted); }
+
+/* Kartu dan logo */
+.card-ios {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 24px; padding: 32px 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .05);
+}
+.brand-glyph { font-size: 56px; color: var(--accent); line-height: 1; }
+.divider-dot { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.divider-dot::before, .divider-dot::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.divider-dot span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: .6; }
+
+/* Input */
+.field {
+  display: flex; align-items: center; gap: 12px;
+  height: 52px; padding: 0 16px; margin-bottom: 12px;
+  background: var(--field); border: 1px solid var(--line); border-radius: 16px;
+}
+.field:focus-within { border-color: var(--accent); }
+.field i, .field button { color: var(--muted); }
+.field > i { padding-right: 12px; border-right: 1px solid var(--line); }
+.field input {
+  flex: 1; min-width: 0; height: 100%;
+  background: transparent; border: 0; outline: 0; color: var(--text);
+}
+.field input::placeholder { color: var(--muted); }
+.field button { flex-shrink: 0; line-height: 1; }
+
+/* Tombol dan checkbox */
+.btn-accent {
+  width: 100%; height: 52px; border: 0; border-radius: 16px;
+  background: var(--accent); color: var(--on-accent); font-weight: 600;
+}
+.btn-accent:active { transform: scale(.98); }
+.form-check-input:checked { background-color: var(--accent); border-color: var(--accent); }
+
+/* Pesan flash */
+.alert-ios { border-radius: 14px; padding: 12px 16px; margin-bottom: 16px; font-size: 14px; text-align: left; }
+.alert-ios.danger { background: var(--bad-soft); color: var(--bad); }
+.alert-ios.warning { background: var(--warn-soft); color: var(--warn); }
+
+/* Layout aplikasi */
+.app { display: flex; min-height: 100vh; }
+.sidebar {
+  --bs-offcanvas-width: 270px;
+  --bs-offcanvas-bg: var(--card);
+  --bs-offcanvas-color: var(--text);
+}
+.sidebar-inner {
+  width: 270px; max-width: 100%; height: 100%; padding: 24px 16px;
+  background: var(--card); border-right: 1px solid var(--line);
+}
+@media (min-width: 992px) {
+  .sidebar-inner { min-height: 100vh; position: sticky; top: 0; }
+}
+.app-main { flex: 1; min-width: 0; padding: 20px; }
+.page-title { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 0; }
+
+/* Menu sidebar */
+.sidebar-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding: 0 8px; }
+.sidebar-brand i { font-size: 32px; color: var(--accent); }
+.sidebar-brand small { display: block; color: var(--muted); font-size: 12px; }
+.nav-label { color: var(--muted); font-size: 13px; margin: 20px 12px 6px; }
+.nav-item-ios {
+  display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+  border-radius: 14px; color: var(--text); text-decoration: none;
+}
+.nav-item-ios:hover { background: var(--soft); }
+.nav-item-ios.active { background: var(--soft); color: var(--accent); font-weight: 600; }
+
+/* Topbar */
+.topbar { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.search {
+  flex: 1; height: 46px; padding: 0 16px;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+}
+.search i { color: var(--muted); }
+.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); }
+.user-chip { display: flex; align-items: center; gap: 10px; background: transparent; border: 0; color: var(--text); font-weight: 500; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--on-accent); font-weight: 600;
+}
+.dropdown-menu {
+  --bs-dropdown-bg: var(--card); --bs-dropdown-color: var(--text);
+  --bs-dropdown-link-color: var(--text); --bs-dropdown-link-hover-bg: var(--soft);
+  --bs-dropdown-link-hover-color: var(--text);
+  --bs-dropdown-border-color: var(--line); --bs-dropdown-border-radius: 14px;
+}
+
+/* Perbaikan topbar di HP */
+.search { min-width: 0; }
+.topbar > .btn { color: var(--text); }
+.user-chip { flex-shrink: 0; }
+
+/* Panel dan statistik */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 20px; }
+.stat { display: flex; align-items: center; gap: 14px; height: 100%; }
+.stat-icon {
+  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.stat-num { font-size: 1.75rem; font-weight: 700; line-height: 1.1; }
+.stat-label { color: var(--muted); font-size: .875rem; }
+.tone-blue { background: var(--soft); color: var(--accent); }
+.tone-green { background: var(--ok-soft); color: var(--ok); }
+.tone-orange { background: var(--warn-soft); color: var(--warn); }
+@media (max-width: 575px) {
+  .panel.stat { flex-direction: column; text-align: center; gap: 8px; padding: 14px 6px; }
+  .stat-label { font-size: .75rem; }
+}
+
+/* Daftar buku */
+.panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.link-accent { color: var(--accent); text-decoration: none; font-weight: 500; }
+.book-row { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); }
+.book-info { flex: 1; min-width: 0; }
+.book-title { font-weight: 600; margin: 0; }
+.book-meta { color: var(--muted); font-size: .875rem; margin: 0; }
+.cover {
+  width: 44px; height: 60px; border-radius: 8px; flex-shrink: 0; object-fit: cover;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--soft); color: var(--muted);
+}
+.pill { font-size: .8rem; font-weight: 500; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+.pill::before { content: "●"; margin-right: 6px; font-size: .6rem; vertical-align: middle; }
+.pill.ok { background: var(--ok-soft); color: var(--ok); }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+
+/* Tombol lembut */
+.btn-soft {
+  display: inline-block; padding: 5px 12px; border-radius: 10px; font-size: .85rem;
+  background: var(--soft); color: var(--accent);
+  font-weight: 500; text-decoration: none;
+}
+.btn-soft:hover { filter: brightness(.96); }
+
+/* Tabel buku */
+.table-ios {
+  --bs-table-bg: transparent; --bs-table-color: var(--text);
+  --bs-table-border-color: var(--line);
+  --bs-table-hover-bg: var(--soft); --bs-table-hover-color: var(--text);
+  margin: 0;
+}
+.table-ios th { color: var(--muted); font-weight: 500; font-size: .8rem; text-transform: uppercase; white-space: nowrap; }
+.table-ios td { padding-top: 12px; padding-bottom: 12px; }
+
+/* Tombol */
+.icon-btn {
+  width: 36px; height: 36px; border: 0; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--soft); color: var(--accent); text-decoration: none;
+}
+.icon-btn.danger { background: var(--bad-soft); color: var(--bad); }
+.btn-main {
+  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px;
+  border: 0; border-radius: 14px; background: var(--accent); color: var(--on-accent);
+  font-weight: 600; text-decoration: none;
+}
+.alert-ios.success { background: var(--ok-soft); color: var(--ok); }
+
+/* Dropdown hasil pencarian */
+.search { position: relative; }
+.search-results {
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 1000;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .12); overflow: hidden;
+}
+.search-item {
+  display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+  color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line);
+}
+.search-item:hover { background: var(--soft); }
+.search-item .book-info { flex: 1; min-width: 0; }
+.search-empty { margin: 0; padding: 14px 16px; color: var(--muted); }
+.search-all {
+  display: block; padding: 10px 16px; text-align: center;
+  color: var(--accent); font-weight: 500; text-decoration: none;
+}
+
+/* Daftar buku di HP: geser baris untuk aksi */
+.swipe {
+  display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; border-top: 1px solid var(--line);
+}
+.swipe::-webkit-scrollbar { display: none; }
+.swipe-content {
+  flex: 0 0 100%; min-width: 0; scroll-snap-align: start;
+  display: flex; align-items: center; gap: 14px; padding: 12px 0;
+}
+.swipe-actions { flex: 0 0 auto; display: flex; scroll-snap-align: end; }
+.swipe-actions a, .swipe-actions button {
+  width: 76px; border: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px;
+  font-size: .75rem; text-decoration: none;
+}
+.swipe-actions i { font-size: 1.2rem; }
+.swipe-actions .edit { background: var(--accent); color: var(--on-accent); }
+.swipe-actions .hapus { background: var(--bad); color: var(--bad-soft); }
+
+/* Form */
+.form-label-ios { display: block; font-size: .85rem; color: var(--muted); margin: 0 0 6px 4px; }
+.field input[type="number"] { appearance: textfield; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.form-actions .btn-soft { height: 44px; display: inline-flex; align-items: center; padding: 0 18px; font-size: 1rem; }
+.form-hint { color: var(--muted); font-size: .8rem; margin: -4px 4px 12px; }
+
+/* Upload sampul */
+.upload {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 100%; max-width: 220px; aspect-ratio: 3 / 4; margin: 0 auto;
+  border: 2px dashed var(--line); border-radius: 16px; background: var(--soft);
+  overflow: hidden; cursor: pointer; color: var(--muted); text-align: center;
+}
+.upload img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.upload-hint { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px; }
+.upload-hint i { font-size: 2rem; color: var(--accent); }
+
+/* Tombol menu (HP) dan baris ringkasan */
+.menu-btn {
+  width: 46px; height: 46px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  color: var(--text); font-size: 1.5rem;
+}
+.ringkas { color: var(--muted); margin: 0 0 14px; }
+
+/* Chip kategori */
+.chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 16px; padding-bottom: 2px; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 999px; white-space: nowrap; font-size: .9rem;
+  background: var(--card); border: 1px solid var(--line);
+  color: var(--text); text-decoration: none;
+}
+.chip-n { color: var(--accent); font-weight: 700; }
+.chip.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.chip.active .chip-n { color: inherit; }
+
+/* Tombol dan menu filter */
+.filter-btn {
+  position: relative; width: 34px; height: 34px; flex-shrink: 0; border: 0;
+  border-radius: 10px; background: var(--soft); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+}
+.filter-dot {
+  position: absolute; top: 3px; right: 3px; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--warn); border: 2px solid var(--card);
+}
+.filter-menu { min-width: 230px; padding: 8px; }
+.filter-title {
+  font-size: .75rem; color: var(--muted); letter-spacing: .04em;
+  text-transform: uppercase; margin: 8px 10px 4px;
+}
+.filter-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 10px; border-radius: 10px; color: var(--text); text-decoration: none;
+}
+.filter-item:hover { background: var(--soft); }
+.filter-item.on { color: var(--accent); font-weight: 600; }
+.filter-item .n { color: var(--muted); font-weight: 400; }
+.filter-reset {
+  display: block; margin-top: 6px; padding: 10px; text-align: center;
+  color: var(--bad); text-decoration: none; border-top: 1px solid var(--line);
+}
+
+/* Modal konfirmasi */
+.modal-ios {
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--line); border-radius: 24px; padding: 8px;
+}
+.modal-ios .modal-footer { border: 0; justify-content: center; gap: 10px; }
+.modal-ios .btn-soft { height: 44px; padding: 0 22px; border: 0; font-size: 1rem; }
+.modal-icon {
+  width: 56px; height: 56px; margin: 4px auto 12px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+  background: var(--bad-soft); color: var(--bad);
+}
+.btn-bahaya {
+  height: 44px; padding: 0 22px; border: 0; border-radius: 14px;
+  background: var(--bad); color: var(--bad-soft); font-weight: 600;
+}
+
+/* Monochrome: ikon statistik netral, placeholder, transisi halus */
+.tone-blue, .tone-green, .tone-orange { background: var(--soft); color: var(--text); }
+.field input::placeholder { color: var(--faint); }
+body, .panel, .card-ios, .field, .search, .menu-btn, .tema-btn, .sidebar-inner,
+.dropdown-menu, .filter-menu, .modal-ios, .table-ios, .pill, .nav-item-ios, .btn-soft, .icon-btn {
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Tombol tema (matahari/bulan) */
+.tema-btn {
+  width: 46px; height: 46px; flex-shrink: 0; align-items: center; justify-content: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; color: var(--text);
+}
+.tema-btn .icon-sun { display: none; }
+[data-theme="dark"] .tema-btn .icon-sun { display: inline; }
+[data-theme="dark"] .tema-btn .icon-moon { display: none; }
+
+/* Form buku: sampul di kiri (laptop) atau di atas (HP), isian dua kolom */
+.form-buku .field { margin-bottom: 0; }
+.form-buku .form-actions { margin-top: 24px; }
+.form-grid { display: grid; gap: 20px; }
+.sampul-blok { display: flex; align-items: center; gap: 16px; }
+.sampul-blok .upload { width: 104px; max-width: none; margin: 0; flex-shrink: 0; }
+.sampul-blok .upload-hint { padding: 0; }
+.sampul-blok .upload-hint small { display: none; }
+.sampul-judul { font-weight: 600; margin: 0 0 2px; }
+.sampul-info .form-hint { margin: 0; }
+.btn-pilih { margin-top: 10px; cursor: pointer; }
+@media (min-width: 768px) {
+  .form-grid { grid-template-columns: 240px 1fr; gap: 28px; align-items: start; }
+  .sampul-blok { display: block; }
+  .sampul-blok .upload { width: 100%; max-width: 240px; margin: 0 auto; }
+  .sampul-blok .upload-hint { padding: 12px; }
+  .sampul-blok .upload-hint small { display: block; }
+}
+
+/* Tombol di dalam menu samping */
+.nav-btn { width: 100%; border: 0; background: transparent; text-align: left; font: inherit; }
+
+/* Dropdown kategori, kontrol bawaan browser mengikuti tema, autofill */
+.field select {
+  flex: 1; min-width: 0; height: 100%; cursor: pointer;
+  background: transparent; border: 0; outline: 0; color: var(--text);
+}
+.field select option { background: var(--card); color: var(--text); }
+:root { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  box-shadow: 0 0 0 1000px var(--field) inset;
+  caret-color: var(--text);
+}
+
+/* Checkbox: centang terlihat di dua tema, tanpa warna biru bawaan */
+.form-check-input { background-color: var(--field); border-color: var(--faint); }
+.form-check-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--soft); }
+.form-check-input:checked { background-color: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .form-check-input:checked[type="checkbox"] {
+  --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23171717' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+/* Halaman profil */
+.avatar-besar {
+  width: 72px; height: 72px; margin: 0 auto 12px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--on-accent); font-size: 1.8rem; font-weight: 600;
+}
+.badge-peran {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  background: var(--soft); color: var(--text); font-size: .8rem; font-weight: 500;
+}
+.info-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: .9rem; text-align: left; }
+
+/* Profil: foto bulat dan tata letak */
+.profil-grid { display: grid; gap: 24px; }
+@media (min-width: 768px) { .profil-grid { grid-template-columns: 190px 1fr; align-items: start; } }
+.foto-blok { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.foto-bulat {
+  position: relative; width: 112px; height: 112px; border-radius: 50%; overflow: hidden; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: var(--on-accent); font-size: 2.6rem; font-weight: 600;
+}
+.foto-bulat img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.avatar { overflow: hidden; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Avatar di topbar menuju Profil */
+a.user-chip { text-decoration: none; }
+a.user-chip:hover { opacity: .85; }
