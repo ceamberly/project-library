@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/config/database.php';
-require __DIR__ . '/includes/functions.php';
+require __DIR__ . '/includes/function.php';
 $judul = 'Masuk';
 $flash = getFlash();
 $ingatUser = $_COOKIE['ingat_username'] ?? '';
