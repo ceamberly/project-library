@@ -18,7 +18,7 @@ require __DIR__ . '/includes/header.php';
           <?= htmlspecialchars($flash['msg']) ?>
         </div>
       <?php endif; ?>
-      <form action="<?= BASE_URL ?>/process/login.php" method="post" class="text-start">
+      <form action="<?= BASE_URL ?>/proses/login.php" method="post" class="text-start">
         <label class="field">
           <i class="bi bi-person"></i>
           <input type="text" name="username" placeholder="Username" value="<?= htmlspecialchars($ingatUser) ?>" required <?= $ingatUser ? '' : 'autofocus' ?>>
