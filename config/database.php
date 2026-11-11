@@ -1,7 +1,7 @@
 
 <?php
 // Konfigurasi database
-const DB_HOST = '127.0.0.1';
+const DB_HOST = 'localhost';
 const DB_NAME = 'project-library';
 const DB_USER = 'root';
 const DB_PASS = '';
