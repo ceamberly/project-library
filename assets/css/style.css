@@ -907,3 +907,9 @@ button,
     background: #172a43;
     border-color: #38577c;
 }
+/* Administrator badge - Dark Mode */
+[data-theme="dark"] .badge-peran {
+    background: #263e5d;
+    color: #bdd8ff;
+    border: 1px solid #38577c;
+}
