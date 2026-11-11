@@ -913,3 +913,75 @@ button,
     color: #bdd8ff;
     border: 1px solid #38577c;
 }
+/* =================================
+   DARK MODE - TEXT VISIBILITY FIX
+================================= */
+
+[data-theme="dark"] {
+    color: #f1f5f9;
+}
+
+/* Semua teks umum */
+[data-theme="dark"] body,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] label,
+[data-theme="dark"] small,
+[data-theme="dark"] strong,
+[data-theme="dark"] b,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th {
+    color: #f1f5f9;
+}
+
+/* Judul dan heading */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .book-title,
+[data-theme="dark"] .stat-num {
+    color: #ffffff;
+}
+
+/* Sidebar dan navigasi */
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .sidebar-brand,
+[data-theme="dark"] .nav-item-ios,
+[data-theme="dark"] .user-chip {
+    color: #ffffff;
+}
+
+/* Informasi sekunder */
+[data-theme="dark"] .book-meta,
+[data-theme="dark"] .stat-label,
+[data-theme="dark"] .text-muted {
+    color: #cbd5e1 !important;
+}
+
+/* Input dan placeholder */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    color: #ffffff;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #aab8ca;
+    opacity: 1;
+}
+
+/* Badge administrator */
+[data-theme="dark"] .badge-peran {
+    color: #ffffff !important;
+}
+
+/* Link */
+[data-theme="dark"] a {
+    color: #8ec5ff;
+}
