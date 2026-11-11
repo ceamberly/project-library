@@ -9,7 +9,7 @@ $stmt = $pdo->prepare('SELECT username, nama, role, npm, email, telepon, foto, c
 $stmt->execute([$_SESSION['user_id']]);
 $akun = $stmt->fetch();
 if (!$akun) {
-    redirect('/process/logout.php');
+    redirect('/proses/logout.php');
 }
 $admin = $akun['role'] === 'admin';
 

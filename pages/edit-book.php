@@ -19,7 +19,7 @@ if (!$buku) {
 $old = $_SESSION['old'] ?? [];
 unset($_SESSION['old']);
 $data = array_merge($buku, $old);
-$aksi = BASE_URL . '/process/edit.php';
+$aksi = BASE_URL . '/proses/edit.php';
 $sampulLama = $buku['sampul'];
 $tombol = 'Simpan Perubahan';
 

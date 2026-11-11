@@ -9,7 +9,7 @@ $flash = getFlash();
 $old = $_SESSION['old'] ?? [];
 unset($_SESSION['old']);
 $data = $old + ['stok' => '1'];
-$aksi = BASE_URL . '/process/tambah.php';
+$aksi = BASE_URL . '/proses/tambah.php';
 $sampulLama = null;
 $idBuku = null;
 
